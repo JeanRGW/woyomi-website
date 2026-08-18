@@ -1,0 +1,66 @@
+---
+import Icon, { type IconName } from './Icon.astro'
+
+const points: { icon: IconName; title: string; body: string }[] = [
+  {
+    icon: 'library',
+    title: 'One content model',
+    body: 'Manga, anime, novels, movies, and series share the same library and progress workflows.'
+  },
+  {
+    icon: 'refresh',
+    title: 'Transport-agnostic sources',
+    body: 'Plugins use an injected SourceContext, not a global fetch.'
+  },
+  {
+    icon: 'plugins',
+    title: 'Remote installation',
+    body: 'Plugin repositories can live on any static host and are managed from the Plugins screen.'
+  },
+  {
+    icon: 'check',
+    title: 'Integrity checks',
+    body: 'Bundles are SHA-256 verified and gated by the runtime apiVersion.'
+  },
+  {
+    icon: 'shield',
+    title: 'Worker isolation',
+    body: 'Each plugin runs inside its own Web Worker and talks to the host through a message bridge.'
+  }
+]
+---
+
+<section id="plugins" class="scroll-mt-20 border-t border-line-soft">
+  <div class="mx-auto w-full max-w-6xl px-4 py-14 md:px-8 md:py-20">
+    <h2 class="text-sm font-bold uppercase tracking-wider text-muted">Why the plugin model matters</h2>
+    <p class="mt-4 max-w-2xl leading-relaxed text-muted">
+      Every source is an independent TypeScript module. woyomi owns the product experience, storage,
+      engine, transport, and sandbox; plugins own source-specific discovery and extraction. The app
+      ships with zero bundled sources by design — you install the sources you trust.
+    </p>
+
+    <ul class="mt-8 grid gap-x-8 gap-y-5 sm:grid-cols-2">
+      {
+        points.map((point) => (
+          <li class="flex gap-3.5">
+            <div class="grid size-9 shrink-0 place-items-center rounded-xl bg-accent-soft text-accent">
+              <Icon name={point.icon} size={17} />
+            </div>
+            <div>
+              <h3 class="text-sm font-bold">{point.title}</h3>
+              <p class="mt-1 text-sm leading-relaxed text-muted">{point.body}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+
+    <a
+      href="https://github.com/JeanRGW/woyomi#building-plugins"
+      class="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition-colors hover:text-fg"
+    >
+      Build your own plugin
+      <Icon name="chevronRight" size={15} />
+    </a>
+  </div>
+</section>

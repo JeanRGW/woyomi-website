@@ -1,0 +1,45 @@
+---
+import Icon from './Icon.astro'
+---
+
+<section id="download" class="scroll-mt-20 border-t border-line-soft bg-surface/40">
+  <div class="mx-auto w-full max-w-6xl px-4 py-14 md:px-8 md:py-20">
+    <h2 class="text-sm font-bold uppercase tracking-wider text-muted">Download</h2>
+    <div class="mt-6 grid gap-4 md:grid-cols-2">
+      <article class="rounded-2xl border border-line-soft bg-surface p-6">
+        <div class="grid size-10 place-items-center rounded-xl bg-accent-soft text-accent">
+          <Icon name="download" size={20} />
+        </div>
+        <h3 class="mt-4 font-bold">Get a release</h3>
+        <p class="mt-1.5 text-sm leading-relaxed text-muted">
+          Native builds for <strong class="text-fg">Windows</strong> (NSIS installer) and
+          <strong class="text-fg">Linux</strong> (AppImage, .deb, .rpm) are available on GitHub
+          Releases. Android builds are coming soon.
+        </p>
+        <a
+          href="https://github.com/JeanRGW/woyomi/releases"
+          class="mt-5 inline-flex min-h-10 items-center justify-center gap-2 rounded-xl bg-accent px-4 text-sm font-semibold text-white shadow-sm shadow-accent/25 transition-all hover:bg-accent-deep active:scale-[0.97]"
+        >
+          <Icon name="download" size={16} />
+          GitHub Releases
+        </a>
+      </article>
+
+      <article class="rounded-2xl border border-line-soft bg-surface p-6">
+        <div class="grid size-10 place-items-center rounded-xl bg-accent-soft text-accent">
+          <Icon name="settings" size={20} />
+        </div>
+        <h3 class="mt-4 font-bold">Build from source</h3>
+        <p class="mt-1.5 text-sm leading-relaxed text-muted">
+          Requires <strong class="text-fg">Node 22+</strong>, <strong class="text-fg">pnpm 11.8</strong>,
+          and Rust 1.77+ for the native shell.
+        </p>
+        <pre
+          class="mt-4 overflow-x-auto rounded-xl border border-line-soft bg-ink p-4 font-mono text-[13px] leading-relaxed text-muted"
+        ><code><span class="text-faint">$</span> git clone https://github.com/JeanRGW/woyomi
+<span class="text-faint">$</span> pnpm install <span class="text-faint">&amp;&amp;</span> pnpm build
+<span class="text-faint">$</span> pnpm --filter @woyomi/app tauri dev</code></pre>
+      </article>
+    </div>
+  </div>
+</section>

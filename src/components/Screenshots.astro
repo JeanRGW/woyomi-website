@@ -1,0 +1,56 @@
+---
+import { Image } from 'astro:assets'
+import library from '../assets/library.png'
+import mediaDetail from '../assets/media-detail.png'
+import readerManga from '../assets/reader-manga.png'
+import browseMobile from '../assets/browse-mobile.png'
+import libraryMobile from '../assets/library-mobile.png'
+
+const desktop = [
+  { src: library, alt: 'woyomi Library view' },
+  { src: mediaDetail, alt: 'woyomi media detail view' },
+  { src: readerManga, alt: 'woyomi manga reader' }
+]
+
+const mobile = [
+  { src: browseMobile, alt: 'woyomi Browse view on mobile' },
+  { src: libraryMobile, alt: 'woyomi Library view on mobile' }
+]
+---
+
+<section id="screenshots" class="scroll-mt-20 border-t border-line-soft bg-surface/40">
+  <div class="mx-auto w-full max-w-6xl px-4 py-14 md:px-8 md:py-20">
+    <h2 class="text-sm font-bold uppercase tracking-wider text-muted">See it in action</h2>
+
+    <div class="mt-6 grid gap-4 md:grid-cols-2">
+      {
+        desktop.map((shot) => (
+          <Image
+            src={shot.src}
+            alt={shot.alt}
+            widths={[480, 960]}
+            sizes="(min-width: 768px) 50vw, 100vw"
+            class="rounded-2xl border border-line"
+          />
+        ))
+      }
+    </div>
+
+    <p class="mt-10 max-w-2xl text-sm leading-relaxed text-muted">
+      The same focused experience adapts to smaller screens with compact rails, touch-friendly
+      controls, and bottom navigation built for one-handed use.
+    </p>
+    <div class="mt-4 flex flex-wrap items-start gap-4">
+      {
+        mobile.map((shot) => (
+          <Image
+            src={shot.src}
+            alt={shot.alt}
+            width={280}
+            class="w-40 rounded-2xl border border-line sm:w-56 md:w-64"
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>

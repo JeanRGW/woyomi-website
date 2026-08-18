@@ -1,0 +1,58 @@
+---
+import { Image } from 'astro:assets'
+import Icon from './Icon.astro'
+import browseHome from '../assets/browse-home.png'
+---
+
+<section class="relative overflow-hidden">
+  {/* Quiet radial glow behind the hero copy */}
+  <div
+    class="pointer-events-none absolute inset-0"
+    style="background: radial-gradient(60% 50% at 50% 0%, oklch(0.585 0.21 262 / 0.12) 0%, transparent 70%)"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="relative mx-auto flex w-full max-w-6xl flex-col items-center px-4 pb-14 pt-16 text-center md:px-8 md:pb-20 md:pt-24">
+    <p class="rise-in mb-5 inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3.5 py-1.5 text-[13px] font-semibold text-muted">
+      <span class="size-1.5 rounded-full bg-accent"></span>
+      Tauri 2 · Windows · Linux · Android soon
+    </p>
+
+    <h1 class="rise-in max-w-3xl text-4xl font-extrabold tracking-tight md:text-6xl" style="animation-delay: 60ms">
+      Your library. Every format. <span class="text-accent">One calm, beautiful home.</span>
+    </h1>
+
+    <p class="rise-in mt-5 max-w-xl text-base text-muted md:text-lg" style="animation-delay: 120ms">
+      A multi-source media reader and player for manga, anime, novels, movies, and series — inspired by Aniyomi and Mihon, rebuilt for the desktop.
+    </p>
+
+    <div class="rise-in mt-8 flex flex-wrap items-center justify-center gap-3" style="animation-delay: 180ms">
+      <a
+        href="#download"
+        class="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-accent px-5 text-sm font-semibold text-white shadow-sm shadow-accent/25 transition-all hover:bg-accent-deep active:scale-[0.97]"
+      >
+        <Icon name="download" size={16} />
+        Download
+      </a>
+      <a
+        href="https://github.com/JeanRGW/woyomi"
+        class="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-line bg-transparent px-5 text-sm font-semibold text-fg transition-all hover:border-accent hover:text-accent active:scale-[0.97]"
+      >
+        <Icon name="github" size={16} />
+        View on GitHub
+      </a>
+    </div>
+
+    <figure class="rise-in mt-14 w-full max-w-5xl" style="animation-delay: 240ms">
+      <Image
+        src={browseHome}
+        alt="woyomi Browse home with media rails"
+        widths={[640, 1024, 1600]}
+        sizes="(min-width: 1024px) 960px, 100vw"
+        loading="eager"
+        class="rounded-2xl border border-line shadow-2xl shadow-black/50"
+      />
+    </figure>
+  </div>
+</section>

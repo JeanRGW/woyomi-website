@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* Woyomi brand: deep navy #071224 surfaces, bright blue #0874FF accent.
+     Tokens are shared with apps/app/src/styles.css — keep in sync. */
+  --color-ink: oklch(0.155 0.025 262);
+  --color-surface: oklch(0.185 0.03 262);
+  --color-surface-2: oklch(0.215 0.032 262);
+  --color-surface-3: oklch(0.255 0.035 262);
+  --color-line: oklch(0.275 0.035 262);
+  --color-line-soft: oklch(0.225 0.03 262);
+  --color-fg: oklch(0.94 0.008 262);
+  --color-muted: oklch(0.66 0.025 262);
+  --color-faint: oklch(0.5 0.02 262);
+
+  /* #0874FF */
+  --color-accent: oklch(0.585 0.21 262);
+  --color-accent-deep: oklch(0.48 0.18 262);
+  --color-accent-soft: oklch(0.585 0.21 262 / 0.16);
+
+  --color-ok: oklch(0.72 0.17 155);
+  --color-ok-soft: oklch(0.72 0.17 155 / 0.12);
+  --color-danger: oklch(0.64 0.21 25);
+  --color-danger-soft: oklch(0.64 0.21 25 / 0.12);
+
+  --radius-xl: 0.875rem;
+  --radius-2xl: 1.125rem;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Thin, quiet scrollbars, same as the app */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-surface-3) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--color-surface-3);
+  border-radius: 99px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Entrance motion: 3-beat, transform+opacity only (mirrors the app) */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.rise-in {
+  animation: rise-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .rise-in {
+    animation: none;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}

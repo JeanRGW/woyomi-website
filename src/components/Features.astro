@@ -1,0 +1,55 @@
+---
+import Icon, { type IconName } from './Icon.astro'
+
+const features: { icon: IconName; title: string; body: string }[] = [
+  {
+    icon: 'search',
+    title: 'Discover',
+    body: 'Search across every installed source, pin home rails, and browse by format.'
+  },
+  {
+    icon: 'library',
+    title: 'Read',
+    body: 'Paged or continuous manga reading, plus a focused text reader for novels.'
+  },
+  {
+    icon: 'play',
+    title: 'Watch',
+    body: 'HLS and MP4 playback with episode, season, and progress tracking.'
+  },
+  {
+    icon: 'history',
+    title: 'Keep your place',
+    body: 'Library statuses, chapter and episode history, and automatic progress tracking.'
+  },
+  {
+    icon: 'download',
+    title: 'Take it offline',
+    body: 'Native downloads for manga pages, novel text, and direct MP4 assets.'
+  },
+  {
+    icon: 'shield',
+    title: 'Keep it yours',
+    body: 'Local-first storage, optional sync, and a plugin sandbox for safer extensions.'
+  }
+]
+---
+
+<section id="features" class="scroll-mt-20">
+  <div class="mx-auto w-full max-w-6xl px-4 py-14 md:px-8 md:py-20">
+    <h2 class="text-sm font-bold uppercase tracking-wider text-muted">Made for long sessions</h2>
+    <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        features.map((feature) => (
+          <article class="rounded-2xl border border-line-soft bg-surface p-5 transition-colors hover:border-line">
+            <div class="grid size-10 place-items-center rounded-xl bg-accent-soft text-accent">
+              <Icon name={feature.icon} size={20} />
+            </div>
+            <h3 class="mt-4 font-bold">{feature.title}</h3>
+            <p class="mt-1.5 text-sm leading-relaxed text-muted">{feature.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

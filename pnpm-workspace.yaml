@@ -1,0 +1,8 @@
+# Astro's image pipeline (sharp) and Vite's bundler need their install scripts.
+allowBuilds:
+  esbuild: true
+  sharp: true
+
+onlyBuiltDependencies:
+  - esbuild
+  - sharp
