@@ -1,55 +1,133 @@
 ---
-import Icon, { type IconName } from './Icon.astro'
+import Icon from './Icon.astro'
 
-const features: { icon: IconName; title: string; body: string }[] = [
+const mediums = [
   {
-    icon: 'search',
-    title: 'Discover',
-    body: 'Search across every installed source, pin home rails, and browse by format.'
+    id: 'manga',
+    accent: 'manga',
+    title: 'Manga & Webtoons',
+    subtitle: 'Engineered for panels and spreads',
+    description:
+      'Seamlessly switch between continuous vertical webtoon scroll and dual-page Japanese right-to-left spreads with instant page buffering.',
+    tags: ['Continuous Webtoon', 'Dual-Page RTL', 'Zero Tearing', 'Page Memory'],
+    badgeColor: 'border-manga/30 bg-manga-soft text-manga'
   },
   {
-    icon: 'library',
-    title: 'Read',
-    body: 'Paged or continuous manga reading, plus a focused text reader for novels.'
+    id: 'anime',
+    accent: 'anime',
+    title: 'Anime & Streaming',
+    subtitle: 'Hardware-accelerated player',
+    description:
+      'High-performance native HLS and MP4 video playback. Auto-tracks episode history, manages seasons, and remembers timestamps across restarts.',
+    tags: ['Adaptive HLS', 'Direct MP4', 'Episode History', 'Timestamp Recall'],
+    badgeColor: 'border-anime/30 bg-anime-soft text-anime'
   },
   {
-    icon: 'play',
-    title: 'Watch',
-    body: 'HLS and MP4 playback with episode, season, and progress tracking.'
+    id: 'novel',
+    accent: 'novel',
+    title: 'Light Novels & Prose',
+    subtitle: 'Distraction-free typography reader',
+    description:
+      'Clean typography controls designed for multi-hour reading sessions. Tailor font sizes, line height, margins, and OLED black or warm sepia tones.',
+    tags: ['Custom Fonts', 'Margin Tuning', 'OLED / Sepia', 'TOC Jumper'],
+    badgeColor: 'border-novel/30 bg-novel-soft text-novel'
   },
   {
-    icon: 'history',
-    title: 'Keep your place',
-    body: 'Library statuses, chapter and episode history, and automatic progress tracking.'
-  },
-  {
-    icon: 'download',
-    title: 'Take it offline',
-    body: 'Native downloads for manga pages, novel text, and direct MP4 assets.'
-  },
-  {
-    icon: 'shield',
-    title: 'Keep it yours',
-    body: 'Local-first storage, optional sync, and a plugin sandbox for safer extensions.'
+    id: 'cinema',
+    accent: 'cinema',
+    title: 'Cinema & Series',
+    subtitle: 'Multi-season archive',
+    description:
+      'Group multi-part movies and multi-season series into a single clean catalog entry with unified status tracking and metadata inspection.',
+    tags: ['Season Bundling', 'Multi-Part Rails', 'Metadata Inspector', 'Progress Sync'],
+    badgeColor: 'border-cinema/30 bg-cinema-soft text-cinema'
   }
 ]
 ---
 
-<section id="features" class="scroll-mt-20">
-  <div class="mx-auto w-full max-w-6xl px-4 py-14 md:px-8 md:py-20">
-    <h2 class="text-sm font-bold uppercase tracking-wider text-muted">Made for long sessions</h2>
-    <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+<section id="formats" class="scroll-mt-16 border-t border-line-soft/80 py-16 md:py-24">
+  <div class="mx-auto w-full max-w-6xl px-4 sm:px-6 md:px-8">
+    {/* Section Header */}
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 pb-12">
+      <div>
+        <div class="inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-wider text-accent">
+          <Icon name="layers" size={14} />
+          <span>Unified Media Engine</span>
+        </div>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-fg sm:text-4xl md:text-5xl">
+          Four mediums. One focused player.
+        </h2>
+      </div>
+      <p class="max-w-md text-sm sm:text-base leading-relaxed text-muted">
+        Stop juggling four different apps with four different libraries. Woyomi unifies every format into a single, cohesive workflow.
+      </p>
+    </div>
+
+    {/* Mediums 2x2 Bento */}
+    <div class="grid gap-5 sm:grid-cols-2">
       {
-        features.map((feature) => (
-          <article class="rounded-2xl border border-line-soft bg-surface p-5 transition-colors hover:border-line">
-            <div class="grid size-10 place-items-center rounded-xl bg-accent-soft text-accent">
-              <Icon name={feature.icon} size={20} />
+        mediums.map((item) => (
+          <article class="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-line-soft bg-surface/60 p-6 sm:p-7 transition-all duration-200 hover:border-line hover:bg-surface-2/70">
+            <div>
+              <div class="flex items-center justify-between gap-3">
+                <span class={`inline-flex items-center rounded-full border px-2.5 py-0.5 font-mono text-xs font-semibold ${item.badgeColor}`}>
+                  {item.title}
+                </span>
+                <span class="font-mono text-xs text-faint">0{mediums.indexOf(item) + 1}</span>
+              </div>
+
+              <h3 class="mt-5 text-xl font-bold text-fg sm:text-2xl">
+                {item.subtitle}
+              </h3>
+
+              <p class="mt-2.5 text-sm leading-relaxed text-muted">
+                {item.description}
+              </p>
             </div>
-            <h3 class="mt-4 font-bold">{feature.title}</h3>
-            <p class="mt-1.5 text-sm leading-relaxed text-muted">{feature.body}</p>
+
+            <div class="mt-6 flex flex-wrap gap-1.5 border-t border-line-soft/60 pt-4">
+              {item.tags.map((tag) => (
+                <span class="rounded-md bg-ink/60 px-2 py-1 font-mono text-[11px] text-muted">
+                  {tag}
+                </span>
+              ))}
+            </div>
           </article>
         ))
       }
+    </div>
+
+    {/* Dual Underpinning Pillars: Universal Vault & Offline Engine */}
+    <div class="mt-5 grid gap-5 md:grid-cols-2">
+      <div class="rounded-2xl border border-line-soft bg-gradient-to-br from-surface/80 to-ink p-6 sm:p-7">
+        <div class="flex items-center gap-3">
+          <div class="grid size-10 place-items-center rounded-xl bg-accent-soft text-accent">
+            <Icon name="library" size={20} />
+          </div>
+          <div>
+            <h4 class="text-base font-bold text-fg">Universal Library Vault</h4>
+            <p class="text-xs text-muted">A single taxonomy for all your content</p>
+          </div>
+        </div>
+        <p class="mt-4 text-sm leading-relaxed text-muted">
+          Organize across <strong class="text-fg">Reading</strong>, <strong class="text-fg">Watching</strong>, <strong class="text-fg">Plan to Watch</strong>, <strong class="text-fg">Completed</strong>, and <strong class="text-fg">Paused</strong>. Statuses, chapter read counts, and episode timestamps stay unified in local SQLite.
+        </p>
+      </div>
+
+      <div class="rounded-2xl border border-line-soft bg-gradient-to-br from-surface/80 to-ink p-6 sm:p-7">
+        <div class="flex items-center gap-3">
+          <div class="grid size-10 place-items-center rounded-xl bg-ok-soft text-ok">
+            <Icon name="download" size={20} />
+          </div>
+          <div>
+            <h4 class="text-base font-bold text-fg">Offline Native Downloads</h4>
+            <p class="text-xs text-muted">No internet? No problem.</p>
+          </div>
+        </div>
+        <p class="mt-4 text-sm leading-relaxed text-muted">
+          Save manga chapters, novel text, and direct MP4 streams straight to your local device for seamless offline reading anywhere.
+        </p>
+      </div>
     </div>
   </div>
 </section>

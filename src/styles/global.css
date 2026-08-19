@@ -1,25 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
 @import 'tailwindcss';
 
 @theme {
-  --font-sans: 'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Manrope', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  /* Woyomi brand: deep navy #071224 surfaces, bright blue #0874FF accent.
-     Tokens are shared with apps/app/src/styles.css — keep in sync. */
-  --color-ink: oklch(0.155 0.025 262);
-  --color-surface: oklch(0.185 0.03 262);
-  --color-surface-2: oklch(0.215 0.032 262);
-  --color-surface-3: oklch(0.255 0.035 262);
+  /* Woyomi brand: deep obsidian navy surfaces, cobalt blue accent.
+     Tokens are shared with apps/app/src/styles.css */
+  --color-ink: oklch(0.138 0.025 262);
+  --color-ink-deep: oklch(0.115 0.022 262);
+  --color-surface: oklch(0.178 0.028 262);
+  --color-surface-2: oklch(0.21 0.032 262);
+  --color-surface-3: oklch(0.245 0.035 262);
+  --color-surface-elevated: oklch(0.22 0.034 262);
+
   --color-line: oklch(0.275 0.035 262);
-  --color-line-soft: oklch(0.225 0.03 262);
-  --color-fg: oklch(0.94 0.008 262);
-  --color-muted: oklch(0.66 0.025 262);
-  --color-faint: oklch(0.5 0.02 262);
+  --color-line-soft: oklch(0.22 0.028 262);
+  --color-line-subtle: oklch(0.28 0.035 262 / 0.5);
 
-  /* #0874FF */
+  --color-fg: oklch(0.96 0.008 262);
+  --color-muted: oklch(0.68 0.025 262);
+  --color-faint: oklch(0.50 0.02 262);
+
+  /* Primary Accent (#0874FF) */
   --color-accent: oklch(0.585 0.21 262);
   --color-accent-deep: oklch(0.48 0.18 262);
   --color-accent-soft: oklch(0.585 0.21 262 / 0.16);
+  --color-accent-glow: oklch(0.585 0.21 262 / 0.28);
+
+  /* Media Format Accents (matching Woyomi's cover artwork) */
+  --color-manga: oklch(0.62 0.22 15);
+  --color-manga-soft: oklch(0.62 0.22 15 / 0.15);
+
+  --color-anime: oklch(0.70 0.18 215);
+  --color-anime-soft: oklch(0.70 0.18 215 / 0.15);
+
+  --color-novel: oklch(0.74 0.17 75);
+  --color-novel-soft: oklch(0.74 0.17 75 / 0.15);
+
+  --color-cinema: oklch(0.64 0.20 295);
+  --color-cinema-soft: oklch(0.64 0.20 295 / 0.15);
+
+  --color-series: oklch(0.70 0.16 160);
+  --color-series-soft: oklch(0.70 0.16 160 / 0.15);
 
   --color-ok: oklch(0.72 0.17 155);
   --color-ok-soft: oklch(0.72 0.17 155 / 0.12);
@@ -28,6 +52,7 @@
 
   --radius-xl: 0.875rem;
   --radius-2xl: 1.125rem;
+  --radius-3xl: 1.5rem;
 }
 
 html,
@@ -46,6 +71,12 @@ body {
   font-family: var(--font-sans);
   font-size: 15px;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
 }
 
 ::selection {
@@ -56,7 +87,7 @@ body {
 *:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 /* Thin, quiet scrollbars, same as the app */
@@ -80,7 +111,7 @@ body {
 @keyframes rise-in {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(14px);
   }
   to {
     opacity: 1;
@@ -88,14 +119,48 @@ body {
   }
 }
 .rise-in {
-  animation: rise-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: rise-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.02); }
+}
+.pulse-glow {
+  animation: pulse-subtle 4s ease-in-out infinite;
+}
+
+/* Glass background helper */
+.glass-panel {
+  background: color-mix(in oklch, var(--color-surface) 75%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-line-soft);
+}
+
+.glass-panel-elevated {
+  background: color-mix(in oklch, var(--color-surface-elevated) 85%, transparent);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--color-line);
+}
+
+/* Subtly glowing media borders */
+.manga-glow {
+  box-shadow: 0 0 35px -10px oklch(0.62 0.22 15 / 0.3);
+}
+.anime-glow {
+  box-shadow: 0 0 35px -10px oklch(0.70 0.18 215 / 0.3);
+}
+.novel-glow {
+  box-shadow: 0 0 35px -10px oklch(0.74 0.17 75 / 0.3);
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  .rise-in {
+  .rise-in, .pulse-glow {
     animation: none;
   }
   * {
