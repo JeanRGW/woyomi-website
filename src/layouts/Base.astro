@@ -1,23 +1,65 @@
 ---
 import '../styles/global.css'
+import { languages, type SupportedLanguage } from '../i18n/ui'
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
 
 interface Props {
-  title: string
-  description: string
+  title?: string
+  description?: string
+  lang?: SupportedLanguage
 }
 
-const { title, description } = Astro.props
+const currentLang = Astro.props.lang || getLangFromUrl(Astro.url)
+const t = useTranslations(currentLang)
+
+const title = Astro.props.title || t('meta.title')
+const description = Astro.props.description || t('meta.description')
 const canonical = new URL(Astro.url.pathname, Astro.site)
+const enUrl = new URL('/', Astro.site)
+const ptBrUrl = new URL('/pt-br/', Astro.site)
+const ogLocale = currentLang === 'pt-br' ? 'pt_BR' : 'en_US'
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={languages[currentLang].htmlLang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+
+    {/* Auto-detect browser language and redirect from root '/' without flicker */}
+    <script is:inline>
+      (function () {
+        try {
+          var p = window.location.pathname;
+          if (p === '/' || p === '') {
+            var stored = localStorage.getItem('woyomi_lang');
+            if (stored === 'pt-br') {
+              window.location.replace('/pt-br/' + window.location.search + window.location.hash);
+              return;
+            }
+            if (!stored) {
+              var langs = navigator.languages || [navigator.language || ''];
+              for (var i = 0; i < langs.length; i++) {
+                var l = (langs[i] || '').toLowerCase();
+                if (l.indexOf('pt') === 0) {
+                  window.location.replace('/pt-br/' + window.location.search + window.location.hash);
+                  return;
+                }
+              }
+            }
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    {/* Alternate language tags for SEO */}
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="pt-BR" href={ptBrUrl} />
+    <link rel="alternate" hreflang="x-default" href={enUrl} />
+
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#071224" />
@@ -26,6 +68,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site)
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={ogLocale} />
     <meta property="og:image" content={new URL('/screenshots/browse-home.png', Astro.site)} />
   </head>
   <body>

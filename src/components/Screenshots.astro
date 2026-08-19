@@ -1,10 +1,14 @@
 ---
 import { Image } from 'astro:assets'
 import Icon from './Icon.astro'
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
 import mediaDetail from '../assets/media-detail.png'
 import readerManga from '../assets/reader-manga.png'
 import browseMobile from '../assets/browse-mobile.png'
 import libraryMobile from '../assets/library-mobile.png'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 ---
 
 <section id="showcase" class="scroll-mt-16 border-t border-line-soft/80 bg-surface/25 py-16 md:py-24">
@@ -14,14 +18,14 @@ import libraryMobile from '../assets/library-mobile.png'
       <div>
         <div class="inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-wider text-accent">
           <Icon name="monitor" size={14} />
-          <span>Form & Experience</span>
+          <span>{t('showcase.tagline')}</span>
         </div>
         <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-fg sm:text-4xl md:text-5xl">
-          Crafted for deep focus.
+          {t('showcase.title')}
         </h2>
       </div>
       <p class="max-w-md text-sm sm:text-base leading-relaxed text-muted">
-        No intrusive sidebars during reading, no video player ads, and zero clutter. Every pixel serves your media.
+        {t('showcase.subtitle')}
       </p>
     </div>
 
@@ -31,11 +35,11 @@ import libraryMobile from '../assets/library-mobile.png'
       <div class="flex flex-col justify-between overflow-hidden rounded-2xl border border-line-soft bg-surface/70 p-5 sm:p-6 transition-all hover:border-line">
         <div>
           <div class="flex items-center justify-between gap-2 pb-4 border-b border-line-soft/60">
-            <span class="font-mono text-xs font-semibold text-fg">01 / Detail & Chapter Deck</span>
-            <span class="rounded bg-manga-soft px-2 py-0.5 font-mono text-[11px] font-semibold text-manga">Metadata & Tracking</span>
+            <span class="font-mono text-xs font-semibold text-fg">{t('showcase.card1.num')}</span>
+            <span class="rounded bg-manga-soft px-2 py-0.5 font-mono text-[11px] font-semibold text-manga">{t('showcase.card1.badge')}</span>
           </div>
           <p class="mt-3 text-sm text-muted">
-            Rich metadata inspection, multi-tag filtering, one-click reading status transitions, and single-click episode mark-as-read.
+            {t('showcase.card1.desc')}
           </p>
         </div>
         <figure class="mt-5 overflow-hidden rounded-xl border border-line bg-ink shadow-xl">
@@ -55,11 +59,11 @@ import libraryMobile from '../assets/library-mobile.png'
       <div class="flex flex-col justify-between overflow-hidden rounded-2xl border border-line-soft bg-surface/70 p-5 sm:p-6 transition-all hover:border-line">
         <div>
           <div class="flex items-center justify-between gap-2 pb-4 border-b border-line-soft/60">
-            <span class="font-mono text-xs font-semibold text-fg">02 / Minimalist Reader Canvas</span>
-            <span class="rounded bg-anime-soft px-2 py-0.5 font-mono text-[11px] font-semibold text-anime">Distraction-Free</span>
+            <span class="font-mono text-xs font-semibold text-fg">{t('showcase.card2.num')}</span>
+            <span class="rounded bg-anime-soft px-2 py-0.5 font-mono text-[11px] font-semibold text-anime">{t('showcase.card2.badge')}</span>
           </div>
           <p class="mt-3 text-sm text-muted">
-            Keyboard shortcuts, custom zoom steps, automatic page fitting, and subtle floating HUD that disappears when you read.
+            {t('showcase.card2.desc')}
           </p>
         </div>
         <figure class="mt-5 overflow-hidden rounded-xl border border-line bg-ink shadow-xl">
@@ -82,33 +86,33 @@ import libraryMobile from '../assets/library-mobile.png'
         <div class="md:col-span-6 lg:col-span-5">
           <span class="inline-flex items-center gap-1.5 rounded-full border border-series/30 bg-series-soft px-2.5 py-0.5 font-mono text-xs font-semibold text-series">
             <Icon name="smartphone" size={13} />
-            Mobile Companion
+            {t('showcase.mobile.badge')}
           </span>
           <h3 class="mt-4 text-2xl font-bold text-fg sm:text-3xl">
-            Built for one hand.
+            {t('showcase.mobile.title')}
           </h3>
           <p class="mt-3 text-sm leading-relaxed text-muted">
-            On smaller touchscreens, Woyomi naturally shifts navigation to a bottom tab bar with thumb-reach actions, compact horizontal rails, and swipe gestures.
+            {t('showcase.mobile.desc')}
           </p>
           <ul class="mt-5 space-y-2 text-xs font-medium text-muted">
             <li class="flex items-center gap-2">
               <Icon name="check" size={14} class="text-ok" />
-              <span>Bottom nav: Browse, Library, History, Plugins, Settings</span>
+              <span>{t('showcase.mobile.list1')}</span>
             </li>
             <li class="flex items-center gap-2">
               <Icon name="check" size={14} class="text-ok" />
-              <span>Swipe gestures for chapter next/previous</span>
+              <span>{t('showcase.mobile.list2')}</span>
             </li>
             <li class="flex items-center gap-2">
               <Icon name="check" size={14} class="text-ok" />
-              <span>Compact OLED-friendly black theme</span>
+              <span>{t('showcase.mobile.list3')}</span>
             </li>
           </ul>
         </div>
 
         <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:col-span-6 lg:col-span-7">
           <div class="w-40 sm:w-52 rounded-2xl border-2 border-line bg-ink p-1 shadow-2xl transition-transform hover:-translate-y-1">
-            <div class="py-1 text-center font-mono text-[10px] text-muted border-b border-line-soft mb-1">Browse Rails</div>
+            <div class="py-1 text-center font-mono text-[10px] text-muted border-b border-line-soft mb-1">{t('showcase.mobile.railBrowse')}</div>
             <Image
               src={browseMobile}
               alt="woyomi mobile browse screen"
@@ -119,7 +123,7 @@ import libraryMobile from '../assets/library-mobile.png'
             />
           </div>
           <div class="w-40 sm:w-52 rounded-2xl border-2 border-line bg-ink p-1 shadow-2xl transition-transform hover:-translate-y-1">
-            <div class="py-1 text-center font-mono text-[10px] text-muted border-b border-line-soft mb-1">Library View</div>
+            <div class="py-1 text-center font-mono text-[10px] text-muted border-b border-line-soft mb-1">{t('showcase.mobile.railLibrary')}</div>
             <Image
               src={libraryMobile}
               alt="woyomi mobile library screen"

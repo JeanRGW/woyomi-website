@@ -1,0 +1,104 @@
+---
+import Icon from './Icon.astro'
+import { languages } from '../i18n/ui'
+import { getLangFromUrl } from '../i18n/utils'
+
+interface Props {
+  class?: string
+}
+
+const currentLang = getLangFromUrl(Astro.url)
+---
+
+<div class={`relative inline-flex items-center ${Astro.props.class || ''}`} id="lang-picker">
+  <button
+    type="button"
+    id="lang-picker-btn"
+    aria-expanded="false"
+    aria-haspopup="true"
+    aria-label="Select Language"
+    class="inline-flex h-8 sm:h-9 shrink-0 items-center gap-1 sm:gap-1.5 rounded-lg border border-line bg-surface/60 px-2 sm:px-2.5 text-xs font-mono font-medium text-muted transition-all duration-150 hover:border-line-subtle hover:bg-surface-2 hover:text-fg active:scale-[0.98]"
+  >
+    <Icon name="globe" size={13} class="text-accent shrink-0" />
+    <span class="font-semibold text-fg uppercase whitespace-nowrap text-[11px] sm:text-xs">{languages[currentLang].label}</span>
+    <Icon name="chevronRight" size={11} class="rotate-90 text-muted/60 transition-transform duration-200 shrink-0" id="lang-chevron" />
+  </button>
+
+  <div
+    id="lang-dropdown"
+    role="menu"
+    class="absolute right-0 top-full mt-1.5 hidden w-44 sm:w-48 overflow-hidden rounded-xl border border-line bg-ink-deep/95 p-1 shadow-2xl backdrop-blur-xl ring-1 ring-white/5 z-50"
+  >
+    {
+      Object.entries(languages).map(([code, data]) => {
+        const isActive = code === currentLang
+        const targetHref = code === 'en' ? '/' : `/${code}/`
+        return (
+          <a
+            href={targetHref}
+            data-lang-code={code}
+            role="menuitem"
+            class={`lang-option flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-xs font-medium transition-colors ${
+              isActive
+                ? 'bg-accent/15 text-accent font-semibold'
+                : 'text-muted hover:bg-surface-2 hover:text-fg'
+            }`}
+          >
+            <span class="truncate">{data.name}</span>
+            <span class="shrink-0 font-mono text-[10px] uppercase text-muted/70">{data.label}</span>
+          </a>
+        )
+      })
+    }
+  </div>
+</div>
+
+<script>
+  function initLangPicker() {
+    const picker = document.getElementById('lang-picker')
+    const btn = document.getElementById('lang-picker-btn')
+    const menu = document.getElementById('lang-dropdown')
+    const chevron = document.getElementById('lang-chevron')
+    if (!picker || !btn || !menu) return
+
+    function toggle(open?: boolean) {
+      const shouldOpen = open !== undefined ? open : menu?.classList.contains('hidden')
+      if (shouldOpen) {
+        menu?.classList.remove('hidden')
+        chevron?.classList.add('-rotate-90')
+        btn?.setAttribute('aria-expanded', 'true')
+      } else {
+        menu?.classList.add('hidden')
+        chevron?.classList.remove('-rotate-90')
+        btn?.setAttribute('aria-expanded', 'false')
+      }
+    }
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation()
+      toggle()
+    })
+
+    document.addEventListener('click', (e) => {
+      if (!picker.contains(e.target as Node)) {
+        toggle(false)
+      }
+    })
+
+    // Store user language preference when an option is clicked
+    const options = picker.querySelectorAll<HTMLAnchorElement>('.lang-option')
+    options.forEach((opt) => {
+      opt.addEventListener('click', () => {
+        const code = opt.getAttribute('data-lang-code')
+        if (code) {
+          try {
+            localStorage.setItem('woyomi_lang', code)
+          } catch (e) {}
+        }
+      })
+    })
+  }
+
+  initLangPicker()
+  document.addEventListener('astro:page-load', initLangPicker)
+</script>
