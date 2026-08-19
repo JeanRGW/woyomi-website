@@ -3,12 +3,13 @@ import { Image } from 'astro:assets'
 import logo from '../assets/woyomi-logo-horizontal-reverse.svg'
 import Icon from './Icon.astro'
 import LanguagePicker from './LanguagePicker.astro'
-import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import { getLangFromUrl, useTranslatedPath, useTranslations } from '../i18n/utils'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
+const translatedPath = useTranslatedPath(lang)
 
-const homeHref = lang === 'en' ? '/' : '/pt-br/'
+const homeHref = translatedPath('/')
 
 const links = [
   { href: '#formats', label: t('nav.formats') },

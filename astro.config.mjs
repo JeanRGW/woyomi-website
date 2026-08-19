@@ -5,7 +5,7 @@ export default defineConfig({
   site: 'https://woyomi.rgw.app',
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'pt-br'],
+    locales: ['en', 'pt-br', 'es', 'id', 'fr', 'ru'],
     routing: {
       prefixDefaultLocale: false
     }

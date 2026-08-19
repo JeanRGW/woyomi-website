@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css'
-import { languages, type SupportedLanguage } from '../i18n/ui'
+import { languages, defaultLang, type SupportedLanguage } from '../i18n/ui'
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
 
 interface Props {
@@ -15,9 +15,24 @@ const t = useTranslations(currentLang)
 const title = Astro.props.title || t('meta.title')
 const description = Astro.props.description || t('meta.description')
 const canonical = new URL(Astro.url.pathname, Astro.site)
-const enUrl = new URL('/', Astro.site)
-const ptBrUrl = new URL('/pt-br/', Astro.site)
-const ogLocale = currentLang === 'pt-br' ? 'pt_BR' : 'en_US'
+
+const ogLocales: Record<SupportedLanguage, string> = {
+  en: 'en_US',
+  'pt-br': 'pt_BR',
+  es: 'es_ES',
+  id: 'id_ID',
+  fr: 'fr_FR',
+  ru: 'ru_RU'
+}
+const ogLocale = ogLocales[currentLang] || 'en_US'
+
+const altUrls = (Object.entries(languages) as [SupportedLanguage, (typeof languages)[SupportedLanguage]][]).map(
+  ([code, data]) => ({
+    code,
+    href: new URL(code === 'en' ? '/' : `/${code}/`, Astro.site),
+    hreflang: data.htmlLang
+  })
+)
 ---
 
 <!doctype html>
@@ -35,18 +50,25 @@ const ogLocale = currentLang === 'pt-br' ? 'pt_BR' : 'en_US'
         try {
           var p = window.location.pathname;
           if (p === '/' || p === '') {
+            var locales = { 'pt-br': 'pt', es: 'es', id: 'id', fr: 'fr', ru: 'ru' };
             var stored = localStorage.getItem('woyomi_lang');
-            if (stored === 'pt-br') {
-              window.location.replace('/pt-br/' + window.location.search + window.location.hash);
+            if (stored && locales[stored]) {
+              window.location.replace('/' + stored + '/' + window.location.search + window.location.hash);
               return;
             }
             if (!stored) {
               var langs = navigator.languages || [navigator.language || ''];
+              var primary = ((langs[0] || '') || '').toLowerCase();
+              if (primary.indexOf('en') === 0) {
+                return;
+              }
               for (var i = 0; i < langs.length; i++) {
                 var l = (langs[i] || '').toLowerCase();
-                if (l.indexOf('pt') === 0) {
-                  window.location.replace('/pt-br/' + window.location.search + window.location.hash);
-                  return;
+                for (var code in locales) {
+                  if (l.indexOf(locales[code]) === 0) {
+                    window.location.replace('/' + code + '/' + window.location.search + window.location.hash);
+                    return;
+                  }
                 }
               }
             }
@@ -56,9 +78,12 @@ const ogLocale = currentLang === 'pt-br' ? 'pt_BR' : 'en_US'
     </script>
 
     {/* Alternate language tags for SEO */}
-    <link rel="alternate" hreflang="en" href={enUrl} />
-    <link rel="alternate" hreflang="pt-BR" href={ptBrUrl} />
-    <link rel="alternate" hreflang="x-default" href={enUrl} />
+    {
+      altUrls.map((alt) => (
+        <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
+      ))
+    }
+    <link rel="alternate" hreflang="x-default" href={altUrls.find((alt) => alt.code === defaultLang)?.href} />
 
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
