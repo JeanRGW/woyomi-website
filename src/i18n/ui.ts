@@ -229,7 +229,7 @@ export const ui = {
     'nav.language': 'Idioma',
 
     // Seção Hero
-    'hero.previewBadge': 'v0.1.0 Prévia',
+    'hero.previewBadge': 'Prévia v0.1.0',
     'hero.platforms': 'Windows · Linux · Android',
     'hero.titleLine1': 'Um só espaço para cada história.',
     'hero.titleLine2': 'Mangás, animes, novels & cinema.',
@@ -237,10 +237,10 @@ export const ui = {
       'Um leitor e reprodutor unificado para desktop e Android. Inspirado no Aniyomi e Mihon, reconstruído em Tauri 2 com armazenamento local e plugins isolados em TypeScript.',
     'hero.ctaDownload': 'Baixar v0.1.0',
     'hero.ctaReleases': 'Versões',
-    'hero.ctaPlugins': 'Motor de Plugins',
+    'hero.ctaPlugins': 'Sistema de Plugins',
     'hero.specDesktop': 'Windows & Linux',
     'hero.specAndroid': 'APK para Android',
-    'hero.specVault': 'Cofre 100% Local em SQLite',
+    'hero.specVault': 'Armazenamento 100% Local (SQLite)',
 
     // Abas do Hero
     'hero.tab.browse': 'Explorar',
@@ -248,84 +248,84 @@ export const ui = {
     'hero.tab.detail': 'Detalhes da Mídia',
     'hero.tab.library': 'Biblioteca',
     'hero.tab.mobile': 'App Android',
-    'hero.deck.tauri': 'Núcleo Nativo Tauri 2',
+    'hero.deck.tauri': 'Núcleo Nativo em Tauri 2',
     'hero.deck.model': 'Modelo Unificado (Mangá · Anime · Novel · Cinema)',
     'hero.deck.privacy': 'Zero telemetria · 100% local',
     'hero.mobileBrowse': 'Explorar no Android',
     'hero.mobileLibrary': 'Biblioteca no Android',
 
     // Seção de Recursos (Features)
-    'features.tagline': 'Motor Unificado de Mídia',
-    'features.title': 'Quatro formatos. Um reprodutor focado.',
+    'features.tagline': 'Plataforma Unificada de Mídia',
+    'features.title': 'Quatro formatos. Um único reprodutor.',
     'features.subtitle':
-      'Chega de alternar entre quatro aplicativos e quatro bibliotecas diferentes. O Woyomi unifica tudo em um fluxo coeso e direto.',
+      'Chega de alternar entre quatro aplicativos com bibliotecas separadas. O Woyomi unifica tudo em uma experiência integrada e fluida.',
 
     'features.manga.title': 'Mangás & Webtoons',
-    'features.manga.subtitle': 'Criado para páginas e quadros',
+    'features.manga.subtitle': 'Feito sob medida para páginas e tiras',
     'features.manga.desc':
-      'Alterne facilmente entre rolagem vertical contínua para webtoons e visualização dupla direita-para-esquerda estilo japonês com carregamento instantâneo.',
+      'Alterne com facilidade entre a rolagem vertical para webtoons e a leitura paginada, com carregamento instantâneo.',
     'features.manga.tag1': 'Webtoon Contínuo',
-    'features.manga.tag2': 'Página Dupla RTL',
-    'features.manga.tag3': 'Sem Quebras',
-    'features.manga.tag4': 'Memória de Página',
+    'features.manga.tag2': 'Páginação',
+    'features.manga.tag3': 'Sem Quebras de Imagem',
+    'features.manga.tag4': 'Memória de Leitura',
 
     'features.anime.title': 'Animes & Streaming',
-    'features.anime.subtitle': 'Player acelerado por hardware',
+    'features.anime.subtitle': 'Player com aceleração por hardware',
     'features.anime.desc':
-      'Reprodução de alta performance de vídeos HLS e MP4. Histórico automático de episódios, temporadas e retomada de reprodução precisa.',
+      'Reprodução de alta performance para vídeos HLS e MP4. Histórico automático de episódios, temporadas e retomada ponto onde parou.',
     'features.anime.tag1': 'HLS Adaptativo',
     'features.anime.tag2': 'MP4 Direto',
     'features.anime.tag3': 'Histórico de Episódios',
-    'features.anime.tag4': 'Retomada de Posição',
+    'features.anime.tag4': 'Lembrar Posição',
 
     'features.novel.title': 'Light Novels & Textos',
-    'features.novel.subtitle': 'Leitor tipográfico sem distrações',
+    'features.novel.subtitle': 'Leitura refinada e sem distrações',
     'features.novel.desc':
-      'Controles tipográficos feitos para longas horas de leitura. Ajuste tamanho de fonte, entrelinha, margens e modos Preto OLED ou Sépia.',
+      'Controles completos de tipografia pensados para longas sessões de leitura. Ajuste o tamanho da fonte, espaçamento entre linhas, margens e alterne entre os modos Preto OLED ou Sépia.',
     'features.novel.tag1': 'Fontes Personalizadas',
-    'features.novel.tag2': 'Ajuste de Margem',
+    'features.novel.tag2': 'Ajuste de Margens',
     'features.novel.tag3': 'OLED / Sépia',
     'features.novel.tag4': 'Índice de Capítulos',
 
     'features.cinema.title': 'Cinema & Séries',
-    'features.cinema.subtitle': 'Arquivo de temporadas e filmes',
+    'features.cinema.subtitle': 'Catálogo completo de temporadas e filmes',
     'features.cinema.desc':
-      'Agrupe filmes em partes e séries completas em um catálogo limpo com progresso e detalhes integrados.',
+      'Agrupe filmes em partes e séries completas em uma interface limpa, com acompanhamento de progresso e informações detalhadas.',
     'features.cinema.tag1': 'Temporadas Agrupadas',
     'features.cinema.tag2': 'Organização por Partes',
-    'features.cinema.tag3': 'Inspetor de Metadados',
-    'features.cinema.tag4': 'Sincronização',
+    'features.cinema.tag3': 'Metadados Detalhados',
+    'features.cinema.tag4': 'Sincronização de Progresso',
 
-    'features.vault.title': 'Cofre Universal da Biblioteca',
-    'features.vault.subtitle': 'Uma taxonomia única para todo o seu conteúdo',
+    'features.vault.title': 'Biblioteca Unificada',
+    'features.vault.subtitle': 'Um só sistema para organizar todo o seu acervo',
     'features.vault.desc':
-      'Organize em <strong class="text-fg">Lendo</strong>, <strong class="text-fg">Assistindo</strong>, <strong class="text-fg">Planejo Ver</strong>, <strong class="text-fg">Concluído</strong> e <strong class="text-fg">Pausado</strong>. Status, contagem de capítulos lidos e tempo de episódios unificados no SQLite local.',
+      'Organize tudo em <strong class="text-fg">Lendo</strong>, <strong class="text-fg">Assistindo</strong>, <strong class="text-fg">Planejo Ver</strong>, <strong class="text-fg">Concluído</strong> e <strong class="text-fg">Pausado</strong>. Status, contagem de capítulos lidos e progresso dos episódios ficam centralizados no seu SQLite local.',
 
     'features.offline.title': 'Downloads Nativos Offline',
     'features.offline.subtitle': 'Sem internet? Sem problemas.',
     'features.offline.desc':
-      'Baixe capítulos de mangá, textos de novels e vídeos MP4 direto no seu dispositivo para curtir offline onde estiver.',
+      'Baixe capítulos de mangá, textos de novels e vídeos MP4 direto no seu dispositivo para curtir offline onde você estiver.',
 
     // Seção de Interface (Showcase)
     'showcase.tagline': 'Design & Experiência',
     'showcase.title': 'Criado para foco total.',
     'showcase.subtitle':
-      'Sem barras laterais intrusivas, sem anúncios no reprodutor de vídeo e sem poluição visual. Cada detalhe pensado para a sua mídia.',
+      'Sem barras laterais intrusivas, sem anúncios e sem poluição visual. Cada detalhe pensado para valorizar o seu conteúdo.',
     'showcase.card1.num': '01 / Detalhes & Capítulos',
     'showcase.card1.badge': 'Metadados & Progresso',
     'showcase.card1.desc':
-      'Inspeção completa de metadados, filtros por tags, alteração rápida de status de leitura e marcação de episódios com um clique.',
+      'Metadados completos, filtros por tags, troca rápida de status e marcação de episódios como vistos com apenas um clique.',
     'showcase.card2.num': '02 / Tela de Leitura Minimalista',
     'showcase.card2.badge': 'Sem Distrações',
     'showcase.card2.desc':
-      'Atalhos de teclado, zoom personalizado, ajuste automático de página e interface flutuante discreta que some enquanto você lê.',
+      'Atalhos de teclado, zoom personalizado, ajuste automático de página e interface flutuante discreta que desaparece enquanto você lê.',
     'showcase.mobile.badge': 'Versão Mobile',
     'showcase.mobile.title': 'Pensado para usar com uma mão.',
     'showcase.mobile.desc':
-      'Em telas de toque, o Woyomi adapta a navegação para uma barra inferior ao alcance do polegar, com trilhas horizontais compactas e gestos de arrasto.',
-    'showcase.mobile.list1': 'Navegação inferior: Explorar, Biblioteca, Histórico, Plugins, Ajustes',
+      'Em telas de toque, o Woyomi adapta a navegação para uma barra inferior ao alcance do polegar, com trilhas horizontais compactas e gestos de deslizar.',
+    'showcase.mobile.list1': 'Navegação inferior: Explorar, Biblioteca, Histórico, Plugins e Configurações',
     'showcase.mobile.list2': 'Gestos de deslizar para avançar e voltar capítulos',
-    'showcase.mobile.list3': 'Tema escuro otimizado para telas OLED',
+    'showcase.mobile.list3': 'Tema escuro compacto otimizado para telas OLED',
     'showcase.mobile.railBrowse': 'Explorar',
     'showcase.mobile.railLibrary': 'Biblioteca',
 
@@ -333,21 +333,21 @@ export const ui = {
     'plugins.tagline': 'Arquitetura Extensível',
     'plugins.title': 'Zero fontes pré-instaladas. 100% extensível.',
     'plugins.subtitle':
-      'O Woyomi é um motor de reprodução livre. Não inclui fontes ou scrapers de fábrica — você instala e gerencia apenas as fontes em que confia.',
-    'plugins.pillar1.title': 'Isolamento em Web Worker Sandbox',
+      'O Woyomi é uma plataforma de reprodução aberta. Não inclui fontes ou scrapers de fábrica — você instala e gerencia apenas as fontes em que realmente confia.',
+    'plugins.pillar1.title': 'Sandbox Isolada em Web Worker',
     'plugins.pillar1.desc':
-      'Cada plugin de fonte roda em uma thread isolada de Web Worker, sem acesso direto ao DOM e com controle rigoroso de memória.',
+      'Cada plugin de fonte roda em uma thread isolada de Web Worker, sem acesso direto ao DOM e com isolamento estrito de memória.',
     'plugins.pillar2.title': 'SourceContext Injetado',
     'plugins.pillar2.desc':
-      'Plugins se comunicam através de uma interface injetada com limite de requisições, headers customizados e parsers nativos de HTML/JSON.',
-    'plugins.pillar3.title': 'Validação de Integridade SHA-256',
+      'Os plugins se comunicam por meio de uma interface injetada com limite de requisições, headers personalizados e parsers nativos de HTML/JSON.',
+    'plugins.pillar3.title': 'Verificação de Integridade SHA-256',
     'plugins.pillar3.desc':
-      'Pacotes remotos de plugins são verificados criptograficamente com hashes do manifesto antes de serem executados.',
+      'Pacotes remotos de plugins são verificados criptograficamente com as chaves hash do manifesto antes de serem executados no aplicativo.',
     'plugins.pillar4.title': 'Repositórios Estáticos Descentralizados',
     'plugins.pillar4.desc':
-      'Repositórios de plugins podem ficar em qualquer lugar — GitHub Releases, Cloudflare R2 ou qualquer servidor HTTPS estático.',
+      'Repositórios de plugins podem ficar hospedados em qualquer lugar — GitHub, Cloudflare ou qualquer servidor HTTPS estático.',
     'plugins.sdkBtn': 'Documentação do SDK de Plugins',
-    'plugins.footerSandbox': 'Executado em ambiente Web Worker isolado',
+    'plugins.footerSandbox': 'Execução isolada em ambiente Web Worker',
     'plugins.footerContracts': '✓ Contratos de API com tipagem estrita',
 
     // Seção de Download
@@ -355,11 +355,11 @@ export const ui = {
     'download.title': 'Pronto para a sua biblioteca.',
     'download.subtitle':
       'Baixe as versões de prévia v0.1.0 no GitHub Releases ou compile a partir do código-fonte com a sua toolchain Rust.',
-    'download.windows.desc': 'App nativo para desktop com aceleração de hardware para Windows 10 e 11.',
+    'download.windows.desc': 'App nativo para desktop com aceleração por hardware para Windows 10 e 11.',
     'download.windows.btn': 'Baixar .exe',
     'download.linux.desc': 'AppImage universal e pacotes nativos para Ubuntu, Debian, Fedora e Arch.',
     'download.linux.btn': 'Baixar Pacote',
-    'download.android.desc': 'App mobile otimizado para toque com navegação inferior para Android 10+.',
+    'download.android.desc': 'App mobile otimizado para telas de toque com navegação inferior para Android 10+.',
     'download.android.btn': 'Baixar APK',
     'download.buildTitle': 'Compilar do Código-Fonte',
     'download.buildRequirements': 'Node 22+ · pnpm 11.8 · Rust 1.77+',
@@ -368,15 +368,15 @@ export const ui = {
 
     // Rodapé (Footer)
     'footer.desc':
-      'Leitor e reprodutor de mídia multiformato, 100% local. Não inclui fontes de fábrica — instale e gerencie apenas o que você confia.',
-    'footer.status': 'v0.1.0 prévia alpha',
+      'Leitor e reprodutor de mídia multiformato e 100% local. Não inclui fontes de fábrica — instale e gerencie apenas aquelas em que você confia.',
+    'footer.status': 'v0.1.0 · Prévia Alpha',
     'footer.colProject': 'Projeto',
     'footer.github': 'Repositório no GitHub',
     'footer.releases': 'Versões & Changelogs',
     'footer.issues': 'Relatar Problemas',
     'footer.colExtensibility': 'Extensibilidade',
     'footer.pluginGuide': 'Guia do SDK de Plugins',
-    'footer.selfHosted': 'Servidor de Sincronização Próprio',
+    'footer.selfHosted': 'Servidor Próprio de Sincronização',
     'footer.license': 'Licença Apache 2.0',
     'footer.colLineage': 'Origem & Créditos',
     'footer.heartStatement': 'Feito com <span class="text-manga inline-block">♥</span> porque grandes histórias devem ser livres para todos',
