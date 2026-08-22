@@ -92,30 +92,35 @@ const architecturePillars = [
               <span class="text-faint">· TypeScript</span>
             </div>
             <span class="font-mono text-[10px] uppercase text-muted/70 tracking-wider">
-              @woyomi/plugin-sdk
+              @woyomi/core
             </span>
           </div>
 
           {/* Syntax Highlighted Code (Horizontal scrollable on narrow screens) */}
-          <pre class="overflow-x-auto p-3.5 sm:p-5 font-mono text-[11px] sm:text-[12.5px] leading-relaxed text-[#c9d1d9] max-w-full"><code class="inline-block min-w-full"><span class="text-[#ff7b72]">import</span> &#123; <span class="text-[#79c0ff]">MediaSource</span>, <span class="text-[#79c0ff]">MediaItem</span>, <span class="text-[#79c0ff]">SourceContext</span> &#125; <span class="text-[#ff7b72]">from</span> <span class="text-[#a5d6ff]'">'@woyomi/plugin-sdk'</span>
+          <pre class="overflow-x-auto p-3.5 sm:p-5 font-mono text-[11px] sm:text-[12.5px] leading-relaxed text-[#c9d1d9] max-w-full"><code class="inline-block min-w-full"><span class="text-[#ff7b72]">import</span> &#123; <span class="text-[#79c0ff]">Source</span>, <span class="text-[#79c0ff]">Media</span>, <span class="text-[#79c0ff]">SourceContext</span> &#125; <span class="text-[#ff7b72]">from</span> <span class="text-[#a5d6ff]">'@woyomi/core'</span>
 
-<span class="text-[#ff7b72]">export class</span> <span class="text-[#ffa657]">MangaVaultSource</span> <span class="text-[#ff7b72]">implements</span> <span class="text-[#79c0ff]">MediaSource</span> &#123;
-  <span class="text-[#ff7b72]">readonly</span> id = <span class="text-[#a5d6ff]'">'community.mangavault'</span>
-  <span class="text-[#ff7b72]">readonly</span> name = <span class="text-[#a5d6ff]'">'Manga Vault'</span>
-  <span class="text-[#ff7b72]">readonly</span> mediaType = <span class="text-[#a5d6ff]'">'manga'</span>
-  <span class="text-[#ff7b72]">readonly</span> apiVersion = <span class="text-[#79c0ff]">1</span>
+<span class="text-[#ff7b72]">export class</span> <span class="text-[#ffa657]">MangaVaultSource</span> <span class="text-[#ff7b72]">implements</span> <span class="text-[#79c0ff]">Source</span> &#123;
+  <span class="text-[#ff7b72]">readonly</span> id = <span class="text-[#a5d6ff]">'community.mangavault'</span>
+  <span class="text-[#ff7b72]">readonly</span> name = <span class="text-[#a5d6ff]">'Manga Vault'</span>
+  <span class="text-[#ff7b72]">readonly</span> mediaTypes = [<span class="text-[#a5d6ff]">'manga'</span>]
 
-  <span class="text-[#8b949e]">// Discovers home rails with injected transport</span>
-  <span class="text-[#ff7b72]">async</span> <span class="text-[#d2a8ff]">getTrending</span>(ctx: <span class="text-[#79c0ff]">SourceContext</span>): <span class="text-[#79c0ff]">Promise</span>&lt;<span class="text-[#79c0ff]">MediaItem</span>[]&gt; &#123;
-    <span class="text-[#ff7b72]">const</span> res = <span class="text-[#ff7b72]">await</span> ctx.<span class="text-[#d2a8ff]">fetch</span>(<span class="text-[#a5d6ff]'">'https://api.vault.org/v1/popular'</span>)
+  <span class="text-[#8b949e]">// Injected transport: Web Worker sandboxed, no global fetch</span>
+  <span class="text-[#ff7b72]">async</span> <span class="text-[#d2a8ff]">search</span>(ctx: <span class="text-[#79c0ff]">SourceContext</span>, query: <span class="text-[#79c0ff]">string</span>, page: <span class="text-[#79c0ff]">number</span>) &#123;
+    <span class="text-[#ff7b72]">const</span> res = <span class="text-[#ff7b72]">await</span> ctx.<span class="text-[#d2a8ff]">fetch</span>(<span class="text-[#a5d6ff]">'https://api.vault.org/v1/search?q='</span> + query)
     <span class="text-[#ff7b72]">const</span> json = <span class="text-[#ff7b72]">await</span> res.<span class="text-[#d2a8ff]">json</span>()
-    <span class="text-[#ff7b72]">return</span> json.items.<span class="text-[#d2a8ff]">map</span>((item: <span class="text-[#79c0ff]">any</span>) =&gt; (&#123;
-      id: item.slug,
-      title: item.title,
-      coverUrl: item.poster_image,
-      format: <span class="text-[#a5d6ff]'">'manga'</span>,
-      status: item.is_completed ? <span class="text-[#a5d6ff]'">'completed'</span> : <span class="text-[#a5d6ff]'">'ongoing'</span>
-    &#125;))
+    <span class="text-[#ff7b72]">return</span> &#123;
+      page,
+      hasNextPage: json.has_more,
+      items: json.items.map((item: <span class="text-[#79c0ff]">any</span>) =&gt; (&#123;
+        id: item.slug,
+        mediaId: item.slug,
+        sourceId: <span class="text-[#a5d6ff]">'community.mangavault'</span>,
+        title: item.title,
+        coverUrl: item.poster_image,
+        type: <span class="text-[#a5d6ff]">'manga'</span>,
+        status: item.is_completed ? <span class="text-[#a5d6ff]">'completed'</span> : <span class="text-[#a5d6ff]">'ongoing'</span>
+      &#125;))
+    &#125;
   &#125;
 &#125;</code></pre>
 

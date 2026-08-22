@@ -55,17 +55,17 @@ export const ui = {
     'nav.plugins': 'Plugin Engine',
     'nav.download': 'Download',
     'nav.getApp': 'Get App',
-    'nav.versionBadge': 'v0.1.0 · alpha',
+    'nav.versionBadge': 'v{version} · alpha',
     'nav.language': 'Language',
 
     // Hero Section
-    'hero.previewBadge': 'v0.1.0 Preview',
+    'hero.previewBadge': 'v{version} Preview',
     'hero.platforms': 'Windows · Linux · Android',
     'hero.titleLine1': 'One canvas for every story.',
     'hero.titleLine2': 'Manga, anime, novels & cinema.',
     'hero.subtitle':
       'A unified reader and player for desktop & Android. Inspired by Aniyomi and Mihon, rebuilt on Tauri 2 with local-first storage and sandboxed TypeScript plugins.',
-    'hero.ctaDownload': 'Get v0.1.0',
+    'hero.ctaDownload': 'Get v{version}',
     'hero.ctaReleases': 'Releases',
     'hero.ctaPlugins': 'Plugin Engine',
     'hero.specDesktop': 'Windows & Linux',
@@ -184,7 +184,7 @@ export const ui = {
     'download.tagline': 'Get Woyomi',
     'download.title': 'Ready for your library.',
     'download.subtitle':
-      'Download v0.1.0 preview builds from GitHub Releases or compile from source with your own Rust toolchain.',
+      'Download v{version} preview builds from GitHub Releases or compile from source with your own Rust toolchain.',
     'download.windows.desc': 'Native desktop shell with hardware acceleration for Windows 10 and 11.',
     'download.windows.btn': 'Download .exe',
     'download.linux.desc': 'Universal AppImage and native packages for Ubuntu, Debian, Fedora, and Arch.',
@@ -199,7 +199,7 @@ export const ui = {
     // Footer
     'footer.desc':
       'A local-first, multi-format media reader and streaming player. Ships with zero bundled sources — install and manage only the sources you trust.',
-    'footer.status': 'v0.1.0 alpha preview',
+    'footer.status': 'v{version} alpha preview',
     'footer.colProject': 'Project',
     'footer.github': 'GitHub Repository',
     'footer.releases': 'Releases & Changelogs',
@@ -225,17 +225,17 @@ export const ui = {
     'nav.plugins': 'Plugins',
     'nav.download': 'Download',
     'nav.getApp': 'Baixar App',
-    'nav.versionBadge': 'v0.1.0 · alpha',
+    'nav.versionBadge': 'v{version} · alpha',
     'nav.language': 'Idioma',
 
     // Seção Hero
-    'hero.previewBadge': 'Prévia v0.1.0',
+    'hero.previewBadge': 'Prévia v{version}',
     'hero.platforms': 'Windows · Linux · Android',
     'hero.titleLine1': 'Um só espaço para cada história.',
     'hero.titleLine2': 'Mangás, animes, novels & cinema.',
     'hero.subtitle':
       'Um leitor e reprodutor unificado para desktop e Android. Inspirado no Aniyomi e Mihon, reconstruído em Tauri 2 com armazenamento local e plugins isolados em TypeScript.',
-    'hero.ctaDownload': 'Baixar v0.1.0',
+    'hero.ctaDownload': 'Baixar v{version}',
     'hero.ctaReleases': 'Versões',
     'hero.ctaPlugins': 'Sistema de Plugins',
     'hero.specDesktop': 'Windows & Linux',
@@ -354,7 +354,7 @@ export const ui = {
     'download.tagline': 'Baixar Woyomi',
     'download.title': 'Pronto para a sua biblioteca.',
     'download.subtitle':
-      'Baixe as versões de prévia v0.1.0 no GitHub Releases ou compile a partir do código-fonte com a sua toolchain Rust.',
+      'Baixe as versões de prévia v{version} no GitHub Releases ou compile a partir do código-fonte com a sua toolchain Rust.',
     'download.windows.desc': 'App nativo para desktop com aceleração por hardware para Windows 10 e 11.',
     'download.windows.btn': 'Baixar .exe',
     'download.linux.desc': 'AppImage universal e pacotes nativos para Ubuntu, Debian, Fedora e Arch.',
@@ -369,7 +369,7 @@ export const ui = {
     // Rodapé (Footer)
     'footer.desc':
       'Leitor e reprodutor de mídia multiformato e 100% local. Não inclui fontes de fábrica — instale e gerencie apenas aquelas em que você confia.',
-    'footer.status': 'v0.1.0 · Prévia Alpha',
+    'footer.status': 'v{version} · Prévia Alpha',
     'footer.colProject': 'Projeto',
     'footer.github': 'Repositório no GitHub',
     'footer.releases': 'Versões & Changelogs',
@@ -395,17 +395,17 @@ export const ui = {
     'nav.plugins': 'Motor de plugins',
     'nav.download': 'Descarga',
     'nav.getApp': 'Obtener la app',
-    'nav.versionBadge': 'v0.1.0 · alfa',
+    'nav.versionBadge': 'v{version} · alfa',
     'nav.language': 'Idioma',
 
     // Hero Section
-    'hero.previewBadge': 'Vista previa v0.1.0',
+    'hero.previewBadge': 'Vista previa v{version}',
     'hero.platforms': 'Windows · Linux · Android',
     'hero.titleLine1': 'Un solo lienzo para cada historia.',
     'hero.titleLine2': 'Manga, anime, novelas y cine.',
     'hero.subtitle':
       'Un lector y reproductor unificado para escritorio y Android. Inspirado en Aniyomi y Mihon, reconstruido sobre Tauri 2 con almacenamiento local y plugins de TypeScript aislados.',
-    'hero.ctaDownload': 'Obtener v0.1.0',
+    'hero.ctaDownload': 'Obtener v{version}',
     'hero.ctaReleases': 'Versiones',
     'hero.ctaPlugins': 'Motor de plugins',
     'hero.specDesktop': 'Windows y Linux',
@@ -524,7 +524,7 @@ export const ui = {
     'download.tagline': 'Obtén Woyomi',
     'download.title': 'Listo para tu biblioteca.',
     'download.subtitle':
-      'Descarga las versiones de vista previa v0.1.0 desde GitHub Releases o compila desde el código fuente con tu propia toolchain de Rust.',
+      'Descarga las versiones de vista previa v{version} desde GitHub Releases o compila desde el código fuente con tu propia toolchain de Rust.',
     'download.windows.desc': 'Escritorio nativo con aceleración por hardware para Windows 10 y 11.',
     'download.windows.btn': 'Descargar .exe',
     'download.linux.desc': 'AppImage universal y paquetes nativos para Ubuntu, Debian, Fedora y Arch.',
@@ -539,7 +539,7 @@ export const ui = {
     // Footer
     'footer.desc':
       'Un lector y reproductor de medios multiformato y local primero. Incluye cero fuentes incluidas: instala y gestiona solo las fuentes en las que confías.',
-    'footer.status': 'vista previa alpha v0.1.0',
+    'footer.status': 'vista previa alpha v{version}',
     'footer.colProject': 'Proyecto',
     'footer.github': 'Repositorio en GitHub',
     'footer.releases': 'Versiones y cambios',
@@ -565,17 +565,17 @@ export const ui = {
     'nav.plugins': 'Mesin Plugin',
     'nav.download': 'Unduh',
     'nav.getApp': 'Dapatkan Aplikasi',
-    'nav.versionBadge': 'v0.1.0 · alpha',
+    'nav.versionBadge': 'v{version} · alpha',
     'nav.language': 'Bahasa',
 
     // Hero Section
-    'hero.previewBadge': 'Pratinjau v0.1.0',
+    'hero.previewBadge': 'Pratinjau v{version}',
     'hero.platforms': 'Windows · Linux · Android',
     'hero.titleLine1': 'Satu kanvas untuk setiap cerita.',
     'hero.titleLine2': 'Manga, anime, novel & sinema.',
     'hero.subtitle':
       'Pembaca dan pemutar terpadu untuk desktop & Android. Terinspirasi dari Aniyomi dan Mihon, dibangun ulang di atas Tauri 2 dengan penyimpanan lokal dan plugin TypeScript yang terisolasi.',
-    'hero.ctaDownload': 'Dapatkan v0.1.0',
+    'hero.ctaDownload': 'Dapatkan v{version}',
     'hero.ctaReleases': 'Rilis',
     'hero.ctaPlugins': 'Mesin Plugin',
     'hero.specDesktop': 'Windows & Linux',
@@ -694,7 +694,7 @@ export const ui = {
     'download.tagline': 'Dapatkan Woyomi',
     'download.title': 'Siap untuk perpustakaanmu.',
     'download.subtitle':
-      'Unduh build pratinjau v0.1.0 dari GitHub Releases atau kompilasi dari sumber dengan toolchain Rust Anda sendiri.',
+      'Unduh build pratinjau v{version} dari GitHub Releases atau kompilasi dari sumber dengan toolchain Rust Anda sendiri.',
     'download.windows.desc': 'Shell desktop natif dengan akselerasi perangkat keras untuk Windows 10 dan 11.',
     'download.windows.btn': 'Unduh .exe',
     'download.linux.desc': 'AppImage universal dan paket natif untuk Ubuntu, Debian, Fedora, dan Arch.',
@@ -709,7 +709,7 @@ export const ui = {
     // Footer
     'footer.desc':
       'Pembaca dan pemutar media multiformat yang mengutamakan lokal. Tanpa sumber bawaan — instal dan kelola hanya sumber yang Anda percaya.',
-    'footer.status': 'pratinjau alpha v0.1.0',
+    'footer.status': 'pratinjau alpha v{version}',
     'footer.colProject': 'Proyek',
     'footer.github': 'Repositori GitHub',
     'footer.releases': 'Rilis & Changelog',
@@ -735,17 +735,17 @@ export const ui = {
     'nav.plugins': 'Moteur de plugins',
     'nav.download': 'Téléchargement',
     'nav.getApp': 'Obtenir l’app',
-    'nav.versionBadge': 'v0.1.0 · alpha',
+    'nav.versionBadge': 'v{version} · alpha',
     'nav.language': 'Langue',
 
     // Hero Section
-    'hero.previewBadge': 'Aperçu v0.1.0',
+    'hero.previewBadge': 'Aperçu v{version}',
     'hero.platforms': 'Windows · Linux · Android',
     'hero.titleLine1': 'Une seule toile pour chaque histoire.',
     'hero.titleLine2': 'Manga, anime, romans et cinéma.',
     'hero.subtitle':
       'Un lecteur et lecteur unifié pour ordinateur et Android. Inspiré d’Aniyomi et Mihon, reconstruit sur Tauri 2 avec un stockage local et des plugins TypeScript isolés.',
-    'hero.ctaDownload': 'Obtenir v0.1.0',
+    'hero.ctaDownload': 'Obtenir v{version}',
     'hero.ctaReleases': 'Versions',
     'hero.ctaPlugins': 'Moteur de plugins',
     'hero.specDesktop': 'Windows & Linux',
@@ -864,7 +864,7 @@ export const ui = {
     'download.tagline': 'Obtenez Woyomi',
     'download.title': 'Prêt pour votre bibliothèque.',
     'download.subtitle':
-      'Téléchargez les builds d’aperçu v0.1.0 depuis GitHub Releases ou compilez depuis le code source avec votre propre toolchain Rust.',
+      'Téléchargez les builds d’aperçu v{version} depuis GitHub Releases ou compilez depuis le code source avec votre propre toolchain Rust.',
     'download.windows.desc': 'Coquille native pour ordinateur avec accélération matérielle pour Windows 10 et 11.',
     'download.windows.btn': 'Télécharger .exe',
     'download.linux.desc': 'AppImage universel et paquets natifs pour Ubuntu, Debian, Fedora et Arch.',
@@ -879,7 +879,7 @@ export const ui = {
     // Footer
     'footer.desc':
       'Un lecteur et lecteur multimédia multiformat, local d’abord. Zéro source incluse — installez et gérez uniquement les sources en qui vous avez confiance.',
-    'footer.status': 'aperçu alpha v0.1.0',
+    'footer.status': 'aperçu alpha v{version}',
     'footer.colProject': 'Projet',
     'footer.github': 'Dépôt GitHub',
     'footer.releases': 'Versions & changelogs',
@@ -905,17 +905,17 @@ export const ui = {
     'nav.plugins': 'Движок плагинов',
     'nav.download': 'Скачать',
     'nav.getApp': 'Получить приложение',
-    'nav.versionBadge': 'v0.1.0 · альфа',
+    'nav.versionBadge': 'v{version} · альфа',
     'nav.language': 'Язык',
 
     // Hero Section
-    'hero.previewBadge': 'Превью v0.1.0',
+    'hero.previewBadge': 'Превью v{version}',
     'hero.platforms': 'Windows · Linux · Android',
     'hero.titleLine1': 'Одно полотно для каждой истории.',
     'hero.titleLine2': 'Манга, аниме, романы и кино.',
     'hero.subtitle':
       'Единый читатель и плеер для компьютера и Android. Вдохновлён Aniyomi и Mihon, перестроен на Tauri 2 с локальным хранилищем и изолированными плагинами на TypeScript.',
-    'hero.ctaDownload': 'Получить v0.1.0',
+    'hero.ctaDownload': 'Получить v{version}',
     'hero.ctaReleases': 'Релизы',
     'hero.ctaPlugins': 'Движок плагинов',
     'hero.specDesktop': 'Windows и Linux',
@@ -1034,7 +1034,7 @@ export const ui = {
     'download.tagline': 'Скачать Woyomi',
     'download.title': 'Готово для вашей библиотеки.',
     'download.subtitle':
-      'Скачайте превью-сборки v0.1.0 с GitHub Releases или соберите из исходников со своим Rust-тулчейном.',
+      'Скачайте превью-сборки v{version} с GitHub Releases или соберите из исходников со своим Rust-тулчейном.',
     'download.windows.desc': 'Нативная оболочка для компьютера с аппаратным ускорением для Windows 10 и 11.',
     'download.windows.btn': 'Скачать .exe',
     'download.linux.desc': 'Универсальный AppImage и нативные пакеты для Ubuntu, Debian, Fedora и Arch.',
@@ -1049,7 +1049,7 @@ export const ui = {
     // Footer
     'footer.desc':
       'Мультиформатный медиачитатель и стриминговый плеер, ориентированный на локальные данные. Ноль встроенных источников — устанавливайте и управляйте только теми, которым доверяете.',
-    'footer.status': 'альфа-превью v0.1.0',
+    'footer.status': 'альфа-превью v{version}',
     'footer.colProject': 'Проект',
     'footer.github': 'Репозиторий на GitHub',
     'footer.releases': 'Релизы и журналы изменений',

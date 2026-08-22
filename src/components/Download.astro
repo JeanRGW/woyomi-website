@@ -1,5 +1,6 @@
 ---
 import Icon from './Icon.astro'
+import { RELEASE } from '../config'
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
 
 const lang = getLangFromUrl(Astro.url)
@@ -12,7 +13,7 @@ const platforms = [
     status: t('hero.previewBadge'),
     statusClass: 'text-accent bg-accent-soft border-accent/30',
     desc: t('download.windows.desc'),
-    href: 'https://github.com/JeanRGW/woyomi/releases',
+    href: RELEASE.getDownloadUrl('windows'),
     buttonText: t('download.windows.btn'),
     icon: 'monitor'
   },
@@ -22,17 +23,17 @@ const platforms = [
     status: t('hero.previewBadge'),
     statusClass: 'text-accent bg-accent-soft border-accent/30',
     desc: t('download.linux.desc'),
-    href: 'https://github.com/JeanRGW/woyomi/releases',
+    href: RELEASE.getDownloadUrl('linux'),
     buttonText: t('download.linux.btn'),
     icon: 'monitor'
   },
   {
     name: 'Android',
-    tag: 'ARM64 APK',
+    tag: 'Universal APK',
     status: t('hero.previewBadge'),
     statusClass: 'text-accent bg-accent-soft border-accent/30',
     desc: t('download.android.desc'),
-    href: 'https://github.com/JeanRGW/woyomi/releases',
+    href: RELEASE.getDownloadUrl('android'),
     buttonText: t('download.android.btn'),
     icon: 'smartphone'
   }
