@@ -45,7 +45,7 @@ const t = useTranslations(lang)
         <figure class="mt-5 overflow-hidden rounded-xl border border-line bg-ink shadow-xl">
           <Image
             src={mediaDetail}
-            alt="woyomi Media Detail View showing chapter lists and tags"
+            alt="woyomi media detail view with demo chapters and tags"
             width={960}
             height={600}
             loading="eager"
@@ -69,7 +69,7 @@ const t = useTranslations(lang)
         <figure class="mt-5 overflow-hidden rounded-xl border border-line bg-ink shadow-xl">
           <Image
             src={readerManga}
-            alt="woyomi Manga Reader canvas"
+            alt="woyomi reader canvas showing a Pepper & Carrot demo page (CC BY 4.0)"
             width={960}
             height={600}
             loading="eager"
@@ -115,7 +115,7 @@ const t = useTranslations(lang)
             <div class="py-1 text-center font-mono text-[10px] text-muted border-b border-line-soft mb-1">{t('showcase.mobile.railBrowse')}</div>
             <Image
               src={browseMobile}
-              alt="woyomi mobile browse screen"
+              alt="woyomi mobile browse screen with demo comics"
               width={260}
               loading="eager"
               decoding="async"
@@ -126,7 +126,7 @@ const t = useTranslations(lang)
             <div class="py-1 text-center font-mono text-[10px] text-muted border-b border-line-soft mb-1">{t('showcase.mobile.railLibrary')}</div>
             <Image
               src={libraryMobile}
-              alt="woyomi mobile library screen"
+              alt="woyomi mobile library screen with demo titles"
               width={260}
               loading="eager"
               decoding="async"
@@ -136,5 +136,9 @@ const t = useTranslations(lang)
         </div>
       </div>
     </div>
+
+    <p class="mt-8 text-center text-[11px] leading-relaxed text-faint">
+      {t('showcase.credits')}
+    </p>
   </div>
 </section>

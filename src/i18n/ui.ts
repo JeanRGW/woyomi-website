@@ -141,6 +141,8 @@ export const ui = {
     'showcase.title': 'Crafted for deep focus.',
     'showcase.subtitle':
       'No intrusive sidebars during reading, no video player ads, and zero clutter. Every pixel serves your media.',
+    'showcase.credits':
+      'Screenshots use open-licensed demo content: Pepper & Carrot by David Revoy (CC BY 4.0) and Big Buck Bunny by Blender Foundation (CC BY 3.0).',
     'showcase.card1.num': '01 / Detail & Chapter Deck',
     'showcase.card1.badge': 'Metadata & Tracking',
     'showcase.card1.desc':
