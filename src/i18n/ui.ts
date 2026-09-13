@@ -45,7 +45,7 @@ export type SupportedLanguage = keyof typeof languages
 export const ui = {
   en: {
     // Metadata
-    'meta.title': 'woyomi — Your library. Every format. One calm, beautiful home.',
+    'meta.title': 'woyomi — manga, anime, novel & movie reader',
     'meta.description':
       'A multi-source media reader and player for manga, anime, novels, movies, and series. Tauri 2 desktop and Android app with a modular TypeScript plugin system.',
 
@@ -215,7 +215,7 @@ export const ui = {
 
   'pt-br': {
     // Metadados
-    'meta.title': 'woyomi — Sua biblioteca. Todos os formatos. Uma experiência única e fluida.',
+    'meta.title': 'woyomi — leitor de mangás, animes, novels e filmes',
     'meta.description':
       'Leitor e reprodutor de mídia multifonte para mangás, animes, light novels, filmes e séries. App em Tauri 2 para desktop e Android com sistema modular de plugins em TypeScript.',
 
@@ -385,7 +385,7 @@ export const ui = {
 
   es: {
     // Metadata
-    'meta.title': 'woyomi — Tu biblioteca. Todos los formatos. Un solo hogar, sereno y hermoso.',
+    'meta.title': 'woyomi — lector de manga, anime, novelas y películas',
     'meta.description':
       'Un lector y reproductor de medios multiorigen para manga, anime, novelas, películas y series. App de Tauri 2 para escritorio y Android con un sistema modular de plugins en TypeScript.',
 
@@ -555,7 +555,7 @@ export const ui = {
 
   id: {
     // Metadata
-    'meta.title': 'woyomi — Perpustakaanmu. Semua format. Satu rumah yang tenang dan indah.',
+    'meta.title': 'woyomi — pembaca manga, anime, novel & film',
     'meta.description':
       'Pembaca dan pemutar media multisumber untuk manga, anime, novel, film, dan serial. Aplikasi Tauri 2 untuk desktop dan Android dengan sistem plugin TypeScript modular.',
 
@@ -725,7 +725,7 @@ export const ui = {
 
   fr: {
     // Metadata
-    'meta.title': 'woyomi — Votre bibliothèque. Tous les formats. Un seul foyer, calme et magnifique.',
+    'meta.title': 'woyomi — lecteur de manga, anime, romans et films',
     'meta.description':
       'Un lecteur et lecteur multimédia multisources pour les mangas, animes, romans, films et séries. Application Tauri 2 pour ordinateur et Android avec un système de plugins TypeScript modulaire.',
 
@@ -895,7 +895,7 @@ export const ui = {
 
   ru: {
     // Metadata
-    'meta.title': 'woyomi — Ваша библиотека. Все форматы. Один спокойный и красивый дом.',
+    'meta.title': 'woyomi — читалка манги, аниме, новелл и фильмов',
     'meta.description':
       'Мультиисточниковый читатель и плеер для манги, аниме, романов, фильмов и сериалов. Приложение на Tauri 2 для компьютера и Android с модульной системой плагинов на TypeScript.',
 

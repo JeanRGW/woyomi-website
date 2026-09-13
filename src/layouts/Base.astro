@@ -2,6 +2,7 @@
 import '../styles/global.css'
 import { languages, defaultLang, type SupportedLanguage } from '../i18n/ui'
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import { RELEASE } from '../config'
 
 interface Props {
   title?: string
@@ -33,6 +34,35 @@ const altUrls = (Object.entries(languages) as [SupportedLanguage, (typeof langua
     hreflang: data.htmlLang
   })
 )
+
+const site = Astro.site ?? new URL('https://woyomi.rgw.app')
+const structuredDataJson = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': new URL('/#website', site).toString(),
+      url: new URL('/', site).toString(),
+      name: 'woyomi',
+      inLanguage: languages[currentLang].htmlLang
+    },
+    {
+      '@type': 'SoftwareApplication',
+      '@id': new URL('/#app', site).toString(),
+      name: 'woyomi',
+      alternateName: 'woyomi media reader and player',
+      applicationCategory: 'MultimediaApplication',
+      operatingSystem: 'Windows, Linux, Android',
+      softwareVersion: RELEASE.version,
+      url: new URL('/', site).toString(),
+      downloadUrl: RELEASE.releasesUrl,
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+      inLanguage: languages[currentLang].htmlLang,
+      description,
+      author: { '@type': 'Person', name: 'JeanRGW', url: 'https://rgw.app' }
+    }
+  ]
+}).replace(/</g, '\\u003c')
 ---
 
 <!doctype html>
@@ -95,6 +125,7 @@ const altUrls = (Object.entries(languages) as [SupportedLanguage, (typeof langua
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content={ogLocale} />
     <meta property="og:image" content={new URL('/screenshots/browse-home.png', Astro.site)} />
+    <script is:inline type="application/ld+json" set:html={structuredDataJson} />
   </head>
   <body>
     <slot />
