@@ -1,4 +1,4 @@
-const CURRENT_VERSION = '0.4.1'
+const CURRENT_VERSION = '0.4.2'
 
 export const RELEASE = {
   version: CURRENT_VERSION,
